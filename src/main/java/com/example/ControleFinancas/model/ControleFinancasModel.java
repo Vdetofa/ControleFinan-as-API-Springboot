@@ -33,6 +33,9 @@ public class ControleFinancasModel {
     public String getTipo(){return tipo;}
     public LocalDateTime getData(){return data;}
     
+    public void setData(LocalDateTime data){
+        this.data=data;
+    }
     
 
     

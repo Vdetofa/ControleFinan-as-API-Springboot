@@ -31,5 +31,18 @@ public class ControleFinancasService {
         return repository.findAll();
     }
 
+    public double consultarSaldo(){
+        List<ControleFinancasModel> todasAsFinancas = repository.findAll();
+        double saldoTotal =0.0;
+        for(ControleFinancasModel financa : todasAsFinancas){
+            if (financa.getTipo().equalsIgnoreCase("ENTRADA")) {
+            saldoTotal += financa.getValor();
+        } else {
+            saldoTotal -= financa.getValor();
+        }
+        }
+        return saldoTotal;
+    }
+
 
 }

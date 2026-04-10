@@ -1,6 +1,9 @@
 package com.example.ControleFinancas.controler;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,4 +22,16 @@ public class ControleFinancasControler {
     public void registrar(@RequestBody ControleFinancasModel financas){
         service.registrar(financas);
     }
+
+    @GetMapping
+    public List<ControleFinancasModel>listar(){
+    return service.listartodos();
+    }
+    
+    @GetMapping("/saldo")
+    public double getSaldo() {
+     return service.consultarSaldo();
+    }
+
 }
+
